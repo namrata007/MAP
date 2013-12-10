@@ -1,0 +1,21 @@
+Prepared by Shalini:
+
+Aim:
+    A part of our algorithm for checking noisy columns was created based on the second criteria. In this case, we consider a column as noisy if it contains atleast    fifty percent of unique amino acids.
+    
+Input:
+      As of now for startup, we read one alignment file at a time in this program and check the criteria of noisiness for each column.
+
+Idea:
+1. Receive the file as a command line input argument
+2. Parse the file using Biopython and store the accesion ids and alignments in seperate lists
+3. Obtain the total number of columns in the alignment
+4. For each column check if it is noisy [Column is noisy if (types of unique amino acids present in the column)>=(total no. of amino acids in the column)]
+
+Output:
+       Print a result list indicating the noisy columns as 1 and non noisy columns as 0.
+       Also print the total no. of sequences present in the alignment, total no. of columns, total no. of noisy and non noisy columns respectively for clarity.
+
+Future work:
+       The code must be improved to accept multiple alignment files as input
+       The noisy columns detected in this algorithm must be removed 
