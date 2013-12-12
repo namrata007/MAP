@@ -1,0 +1,33 @@
+Prepared by Namrata:
+
+Aim:
+
+    Function to read multiple files from a folder 
+
+Input:
+
+    Path to the folder
+
+Algorithm:
+
+Step 1: Define a function with input as the folder path and extension of file to be read
+
+Step 2: Define a list to store files with specific extension in the folder
+
+Step 3: Read files from specified folder
+
+Step 4: Append on finding the specified extension  
+
+Step 5: Print total number of files
+
+
+
+Output:
+
+       Total number of files
+
+Future work:
+
+       Remove noisy columns
+
+       Develop trees for the new alignment
