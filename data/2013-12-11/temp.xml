@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+ <root>
+  <runs>
+   <run id="" dim="16">
+    <identities>
+     <identity name="sp2"/>
+     <identity name="sp11"/>
+     <identity name="sp7"/>
+     <identity name="sp6"/>
+     <identity name="sp10"/>
+     <identity name="sp16"/>
+     <identity name="sp3"/>
+     <identity name="sp15"/>
+     <identity name="sp4"/>
+     <identity name="sp5"/>
+     <identity name="sp9"/>
+     <identity name="sp8"/>
+     <identity name="sp12"/>
+     <identity name="sp1"/>
+     <identity name="sp13"/>
+     <identity name="sp14"/>
+    </identities>
+    <tree>
+     <count>1</count>
+     <newick-xml><branch><branch><branch><leaf>sp5</leaf><leaf>sp4</leaf></branch><branch><branch><branch><branch><branch><branch><branch><branch><branch><branch><branch><leaf>sp14</leaf><leaf>sp1</leaf></branch><leaf>sp13</leaf></branch><leaf>sp12</leaf></branch><leaf>sp9</leaf></branch><leaf>sp8</leaf></branch><leaf>sp10</leaf></branch><leaf>sp15</leaf></branch><leaf>sp11</leaf></branch><leaf>sp7</leaf></branch><leaf>sp16</leaf></branch><leaf>sp6</leaf></branch></branch><leaf>sp3</leaf><leaf>sp2</leaf></branch></newick-xml>
+     <newick>(((sp5,sp4),(((((((((((sp14,sp1),sp13),sp12),sp9),sp8),sp10),sp15),sp11),sp7),sp16),sp6)),sp3,sp2);</newick>
+    </tree>
+   </run>
+  </runs>
+ </root>

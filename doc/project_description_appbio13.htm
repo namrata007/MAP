@@ -1,0 +1,960 @@
+<!doctype html>
+
+<html lang='en'>
+    <head>
+        <title>KTH | Reducing noise in protein multialignments | appbio13</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="/social/static/images/favicon.ico">
+        <link rel="stylesheet" href="/social/static/compressed/css/4cbb4b233176.css" type="text/css" />
+        
+
+
+
+        
+            <script type="text/javascript">
+                var LOCALE = "en";
+                var HAS_ACCEPTED_TERMS = true;
+            </script>
+
+            <script type="text/javascript" src="/social/static/compressed/js/5e0becc3cb15.js"></script>
+        
+
+        
+    <link rel="canonical" href="/social/course/DD2404/subgroup/appbio13/page/reducing-noise-in-protein-mult-2/" />
+
+    </head>
+    <body id="default" class="studentweb  sub_group_context no_subtype">
+        
+  <div class="content" id="page">
+    
+
+
+<header>
+  <div id="header" class="header"> 
+    <div id="primaryHeader" class="primaryHeader">       
+      <div class="tlc cid-1_77257 block figure defaultTheme mainLogo">      
+        <div class="imageWrapper">   
+          <a href="/"><img src="/social/static/images/logo-main-2013.png" alt="KTH:s logotyp" height="70" width="70" title="KTH:s logotyp"></a>    
+        </div> 
+      </div> 
+      
+      <div class="blockItemSeparator blockItemSeparatorIndex0"><span class="blockItemSeparatorInner"></span></div>
+      
+      <div class="tlc cid-1_77262 block search  verbier">   
+            <form class="form search" id="search-dFYbaNoKPMcfFipMeQiMBFFMV-searchForm" 
+                    method="get" action="https://www.kth.se/search/search">
+                <fieldset class="filterd" id="search-dFYbaNoKPMcfFipMeQiMBFFMV-searchFieldset">  
+                    
+                      
+                        <input type="hidden" class="filterParameter" name="filterlabel" value="Applied Bioinformatics (DD2404)">    
+                        <input type="hidden" class="filterParameter" name="includeurl" value="https://www.kth.se/social/course/DD2404">    
+                        <button title="Search all KTH websites" class="button filter visible " 
+                                        id="search-dFYbaNoKPMcfFipMeQiMBFFMV-filterButton" type="button">Course
+                        </button>
+                      
+                    
+                    <div class="q_field">
+                        <div class="input">
+                            <input id="search-dFYbaNoKPMcfFipMeQiMBFFMV-q" class="q searchboxautocomplete ui-autocomplete-input" 
+                                    accesskey="s" type="text" size="26" maxlength="2048" name="q" 
+                                    
+                                    placeholder="Search for content"
+                                    
+                                    autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+                        </div>
+                    </div>
+                    <button title="Clear the input field" id="search-dFYbaNoKPMcfFipMeQiMBFFMV-clearButton" type="button" class="button clear"></button>
+                </fieldset> 
+                <input type="hidden" name="l" value="en" />      
+                <input type="submit" value="Search" class="button search">
+            </form>
+            <script type="text/javascript">
+            $(document).ready(function() {
+                if ($("#search-dFYbaNoKPMcfFipMeQiMBFFMV-q").val() != "") {
+                    $("#search-dFYbaNoKPMcfFipMeQiMBFFMV-clearButton").addClass("visible");
+                    $("#search-dFYbaNoKPMcfFipMeQiMBFFMV-searchFieldset").addClass("hasText");
+                }
+                $("#search-dFYbaNoKPMcfFipMeQiMBFFMV-clearButton").click(function(e){
+                    $("#search-dFYbaNoKPMcfFipMeQiMBFFMV-q").val("");
+                    $(this).removeClass("visible");
+                    $('#search-dFYbaNoKPMcfFipMeQiMBFFMV-searchFieldset').removeClass('hasText');
+                    e.preventDefault();
+                    $('#search-dFYbaNoKPMcfFipMeQiMBFFMV-q').focus();
+                    });
+                $("#search-dFYbaNoKPMcfFipMeQiMBFFMV-q").on("keyup", function(e) {
+                    if ($("#search-dFYbaNoKPMcfFipMeQiMBFFMV-q").val() != "") {
+                    $("#search-dFYbaNoKPMcfFipMeQiMBFFMV-clearButton").addClass("visible");
+                    $("#search-dFYbaNoKPMcfFipMeQiMBFFMV-searchFieldset").addClass("hasText");
+                    } else {
+                    $("#search-dFYbaNoKPMcfFipMeQiMBFFMV-clearButton").removeClass("visible");
+                    }
+                });
+                $("#search-dFYbaNoKPMcfFipMeQiMBFFMV-filterButton").click(function(e){
+                    $(".filterParameter").remove();
+                    $("#search-dFYbaNoKPMcfFipMeQiMBFFMV-searchFieldset").removeClass("filterd");
+                    $(this).hide();
+                });
+                if($(".filterParameter").length === 0){
+                    $("#search-dFYbaNoKPMcfFipMeQiMBFFMV-searchFieldset").removeClass("filterd");
+                }
+            });
+            </script>   
+            
+      </div>
+    </div>  
+    <div id="secondaryHeader" class="secondaryHeader">    
+      <div class="tlc cid-1_260060 block siteName">  
+        <a href="/">Kungliga Tekniska högskolan</a>   
+      </div>
+      
+      
+
+      
+
+
+
+  <div class="block translation">
+    <form action="https://www.kth.se/social/i18n/setlang/" method="post" class="language">
+      
+      <input type="hidden" name="language" value="sv" />
+      <button type="submit" class="to_sv">
+        <span class="lang-name">På svenska</span>
+        <span class="empty">&nbsp;</span>
+      </button>
+      
+    </form>
+  </div>
+
+
+    </div>
+    
+        <!--can use left menu-->
+        <div class="menu-nav-helper">
+            <a href="#menu-bottom" class="jump-target">Menu</a>
+        </div>
+    
+
+  </div>
+</header>
+
+
+    <div class="bodyWrapper ">
+      <div class="bodyWrapper2">
+        
+ <div class="articleWrapper">
+  
+
+<nav>
+  <div id="breadcrums" class="breadcrums">
+    <a href="http://www.kth.se/">KTH</a>
+    
+        
+          <span class="separator">/</span>
+          <a href="/social/">Course web</a>
+        
+      <span class="separator">/</span>
+      <a href="/social/course/DD2404/">Applied Bioinformatics (DD2404)</a>
+    
+    
+    
+      <span class="separator">/</span>
+      appbio13
+      
+      
+        <span class="separator">/</span>
+        Reducing noise in protein multialignments
+      
+    
+  </div>
+</nav>
+
+
+  <article>
+    <div id="article" class="article">
+      
+    <div class="contentarea">
+
+        <div class="mainContent">
+            
+                <div class="preArticleParagraphs">
+                    <div class="topControls">
+                        <div class="top">
+                            
+
+                        </div>
+                    </div>
+                    <h1 class="title">Reducing noise in protein multialignments</h1>
+                </div>
+                <div class="paragraphs"><p><span>Multialignments are noisy. Homologous proteins can contain regions that are not inherited and should therefore not be aligned, and other regions may have evolved so fast that the correct multialignment is impossible to infer. In order to get rid of such problematic regions in subsequential analysis, in particular for phylogeny inference, &quot;bad&quot; columns are often removed using tools such as </span><a href="http://molevol.cmima.csic.es/castresana/Gblocks.html">GBlocks</a><span> or </span><a href="http://trimal.cgenomics.org/publications">TrimAl</a><span>.</span></p>
+<p>In this project, you shall implement a simple noise-reduction method and evaluate its impact on phylogeny inference.</p>
+<h3>Removing noisy columns</h3>
+<p><span>In this project, a column is considered noisy if</span></p>
+<ul>
+<li>there are more than 50% indels,</li>
+<li>at least 50% of amino acids are unique,</li>
+<li>no amino acid appears more than twice.</li>
+</ul>
+<p><span>You will write a Python program that takes a multialignment as input and removes columns that fulfill at least one of the criteria above. If all columns are removed, your program should exit with an error.</span></p>
+<h3>Evaluation</h3>
+<p><span>Besides validating your program (making sure it computes what it was supposed to do), you must also evaluate its performance. The basic question is whether it is worthwhile to use multialignment noise reduction?</span></p>
+<p></p>
+<h3>Test data</h3>
+<p><span>For testing, you will use data used by the authors of TrimAl in their evaluation. I have downloaded and reduced the dataset to make it easier to work with. The data is available in</span>/info/appbio12/data/noise_project<span> on the school computers, or </span><a href="http://www.csc.kth.se/utbildning/kth/kurser/DD2404/appbio12/project/list/testdata.tar.gz">downloadable from this site</a><span>. If you download to a Linux computer, you unpack the data using this command:</span></p>
+<pre>prompt&gt; tar -zxf testdata.tar.gz
+</pre>
+<p><span>and you probably want to delete the remanining file </span>testdata.tar.gz<span>.</span></p>
+<p>The testdata contains six subdirectories:</p>
+<pre>$ ls
+asymmetric_0.5  asymmetric_1.0  asymmetric_2.0  
+symmetric_0.5  symmetric_1.0  symmetric_2.0
+</pre>
+<p><span>and each such directory contains one tree file, containing a reference tree, and 300 alignments that were created by evolving (using a computer program) sequences along the reference tree and then running </span>muscle<span> to align the resulting sequences. The trees are either symmetric (&quot;easy&quot;) or assymetric (&quot;less easy&quot;) and the number in the filename denotes the average amount of mutations per site in the sequences. Hence, the *_2.0 directories has alignments with on average two mutations per sequence position, from the root to the leaves and this is of course the hardest case.</span></p>
+<h3>What to test</h3>
+<p><span>You shall, for each gene alignment, infer a tree using the programs </span>fastprot<span> and </span>fnj<span> (see also </span><a href="http://fastphylo.sourceforge.net/">the FastPhylo package</a><span>, or use the </span>-h<span> option to get hints) on both the given alignment and the noice-reduced alignment. How often is the reference tree recovered with the two methods?</span></p>
+<p>BioPython contains a module called Bio.Phylo which unfortunately is somewhat limited. However, it might help you to read phylogenetic trees from file!</p>
+<p>However, Bio.Phylo has been problematic to at least one student, and the next recommendation, a Python package called DendroPy, is so much better that you are strongly advised to use it.</p>
+<p>DendroPy is installed on the CSC computers and which you can download to your computer. If you use it, you can also try a metric called <a href="http://en.wikipedia.org/wiki/Robinson%E2%80%93Foulds_metric">symmetric distance</a> (often referred to as &quot;Robinson-Foulds&quot;, but this is claimed to be wrong according to the DendroPy documentation) to quantify the difference between an inferred tree and the reference tree.</p>
+<h3>Your report</h3>
+<p><span>In your report, you are expected to present clear statistics regarding the value of noise reduction (compared to no reduction) for the six reference trees.</span></p></div>
+            
+
+
+
+        </div><!-- end mainContent (page)-->
+
+
+        
+            <div class="articleFooter"> <!-- must not be in content?! -->
+                
+                
+<div id="content-detail-activity" class="noCommentsYet">
+	<div id="activity">
+		<div class="activityStream">
+			<div class="activityBlock detail_view">
+			    <div class="activities">
+			    
+<div class="activity minor page_new">
+    <p class="meta">
+        <a href='https://www.kth.se/profile/556/' class='profileLink'>Lars Arvestad</a> 
+        
+        created page
+        <span class="time" title="7 October 2013 at 13:03">7 October at 13:03</span>
+    </p>
+</div>
+
+<div class="activity minor access_changed">
+    <p class="meta">
+    	
+	        <a href='https://www.kth.se/profile/556/' class='profileLink'>Lars Arvestad</a>
+             (Teacher)
+        
+        changed the permissions
+        <span class="time" title="13 November 2013 at 11:24">13 November at 11:24</span>
+    </p>
+    <div class="abstract">Kan därmed läsas av alla inloggade användare och ändras av lärare.</div>
+</div>
+
+
+
+    <div class="activity comment" id="525294f0f276543ba5fad898-comment0">
+        <div class="meta">
+            
+                <span itemscope itemtype="http://schema.org/Person"><a href="https://www.kth.se/profile/116538/" class="profileLink" itemprop="url"><span class="profilepicture size31"><img src="https://www.kth.se/social/upload/2041/biotech_31.png" alt="" width="31" height="31" itemprop="image"></span> <span class="label" itemprop="name">Daniel Backman</span></a></span>
+                
+                commented
+            
+            <span class="time" title="2 December 2013 at 09:46">2 December at 09:46</span>
+
+            
+        </div>
+        
+            <div class="abstract">
+                 <p>Hi,</p>
+<p>I realize that I&#39;m a bit late to the party but should we work in groups for these projects and do we need to call dibs on what project assignment we would like to assign ourselves to?</p>
+            </div>
+            <div class="footer">
+              <div class="like reveal-on-hover">
+                
+                <form style="float:left;" class="like " action="/social/course/DD2404/subgroup/appbio13/page/reducing-noise-in-protein-mult-2/add-like/" method="post"><input type="hidden" name="ref-anchor" value="525294f0f276543ba5fad898"><input type="hidden" name="anchor" value="comment0"><a href="/social/course/DD2404/subgroup/appbio13/page/reducing-noise-in-protein-mult-2/add-like/" class="button-to-text">Like</a></form>
+              </div>
+
+                
+	                
+	                <div class="abuse reveal-on-hover"><a class="reportAbuse None" title="You can report content that violates the law or our Terms and Conditions" href="/social/user/_report_/abuse/?url=https%3A%2F%2Fwww.kth.se%2Fsocial%2Fcourse%2FDD2404%2Fsubgroup%2Fappbio13%2Fpage%2Freducing-noise-in-protein-mult-2%2F%23comment0">Report abuse</a></div>
+                
+            </div>
+        
+        
+    </div>
+
+
+
+
+    <div class="activity comment" id="525294f0f276543ba5fad898-comment1">
+        <div class="meta">
+            
+                <span itemscope itemtype="http://schema.org/Person"><a href="https://www.kth.se/profile/556/" class="profileLink" itemprop="url"><span class="profilepicture size31"><img src="https://www.kth.se/social/upload/3934/lasse_31.jpg" alt="" width="31" height="31" itemprop="image"></span> <span class="label" itemprop="name">Lars Arvestad</span></a></span>
+                 (Teacher)
+                commented
+            
+            <span class="time" title="2 December 2013 at 09:51">2 December at 09:51</span>
+
+            
+        </div>
+        
+            <div class="abstract">
+                 <p>No dibs! You are supposed to work in pairs, still, but several groups can have the same project.</p>
+            </div>
+            <div class="footer">
+              <div class="like reveal-on-hover">
+                
+                <form style="float:left;" class="like " action="/social/course/DD2404/subgroup/appbio13/page/reducing-noise-in-protein-mult-2/add-like/" method="post"><input type="hidden" name="ref-anchor" value="525294f0f276543ba5fad898"><input type="hidden" name="anchor" value="comment1"><a href="/social/course/DD2404/subgroup/appbio13/page/reducing-noise-in-protein-mult-2/add-like/" class="button-to-text">Like</a></form>
+              </div>
+
+                
+	                
+	                <div class="abuse reveal-on-hover"><a class="reportAbuse None" title="You can report content that violates the law or our Terms and Conditions" href="/social/user/_report_/abuse/?url=https%3A%2F%2Fwww.kth.se%2Fsocial%2Fcourse%2FDD2404%2Fsubgroup%2Fappbio13%2Fpage%2Freducing-noise-in-protein-mult-2%2F%23comment1">Report abuse</a></div>
+                
+            </div>
+        
+        
+    </div>
+
+
+
+
+    <div class="activity comment" id="525294f0f276543ba5fad898-comment2">
+        <div class="meta">
+            
+                <span itemscope itemtype="http://schema.org/Person"><a href="https://www.kth.se/profile/116538/" class="profileLink" itemprop="url"><span class="profilepicture size31"><img src="https://www.kth.se/social/upload/2041/biotech_31.png" alt="" width="31" height="31" itemprop="image"></span> <span class="label" itemprop="name">Daniel Backman</span></a></span>
+                
+                commented
+            
+            <span class="time" title="2 December 2013 at 10:04">2 December at 10:04</span>
+
+            
+        </div>
+        
+            <div class="abstract">
+                 <p>Assuming this is a open thread that everyone can read:</p>
+<p>Is there anyone intrested in pairing up with me for this assignment (Reducing noise in protein multialignments)? My level of experience with programming in Python is low but I&#39;m steadily learning more. I know some bioinformatics from the course Bioinformatics. My native language is swedish but I am can communicate in english too.</p>
+            </div>
+            <div class="footer">
+              <div class="like reveal-on-hover">
+                
+                <form style="float:left;" class="like " action="/social/course/DD2404/subgroup/appbio13/page/reducing-noise-in-protein-mult-2/add-like/" method="post"><input type="hidden" name="ref-anchor" value="525294f0f276543ba5fad898"><input type="hidden" name="anchor" value="comment2"><a href="/social/course/DD2404/subgroup/appbio13/page/reducing-noise-in-protein-mult-2/add-like/" class="button-to-text">Like</a></form>
+              </div>
+
+                
+	                
+	                <div class="abuse reveal-on-hover"><a class="reportAbuse None" title="You can report content that violates the law or our Terms and Conditions" href="/social/user/_report_/abuse/?url=https%3A%2F%2Fwww.kth.se%2Fsocial%2Fcourse%2FDD2404%2Fsubgroup%2Fappbio13%2Fpage%2Freducing-noise-in-protein-mult-2%2F%23comment2">Report abuse</a></div>
+                
+            </div>
+        
+        
+    </div>
+
+
+
+
+    <div class="activity comment" id="525294f0f276543ba5fad898-comment3">
+        <div class="meta">
+            
+                <span itemscope itemtype="http://schema.org/Person"><a href="https://www.kth.se/profile/116538/" class="profileLink" itemprop="url"><span class="profilepicture size31"><img src="https://www.kth.se/social/upload/2041/biotech_31.png" alt="" width="31" height="31" itemprop="image"></span> <span class="label" itemprop="name">Daniel Backman</span></a></span>
+                
+                commented
+            
+            <span class="time" title="2 December 2013 at 10:17">2 December at 10:17</span>
+
+            
+        </div>
+        
+            <div class="abstract">
+                 <p>Oh, yeah, Lars,</p>
+<p>When is the deadline for the project?</p>
+            </div>
+            <div class="footer">
+              <div class="like reveal-on-hover">
+                
+                <form style="float:left;" class="like " action="/social/course/DD2404/subgroup/appbio13/page/reducing-noise-in-protein-mult-2/add-like/" method="post"><input type="hidden" name="ref-anchor" value="525294f0f276543ba5fad898"><input type="hidden" name="anchor" value="comment3"><a href="/social/course/DD2404/subgroup/appbio13/page/reducing-noise-in-protein-mult-2/add-like/" class="button-to-text">Like</a></form>
+              </div>
+
+                
+	                
+	                <div class="abuse reveal-on-hover"><a class="reportAbuse None" title="You can report content that violates the law or our Terms and Conditions" href="/social/user/_report_/abuse/?url=https%3A%2F%2Fwww.kth.se%2Fsocial%2Fcourse%2FDD2404%2Fsubgroup%2Fappbio13%2Fpage%2Freducing-noise-in-protein-mult-2%2F%23comment3">Report abuse</a></div>
+                
+            </div>
+        
+        
+    </div>
+
+
+
+
+    <div class="activity comment" id="525294f0f276543ba5fad898-comment4">
+        <div class="meta">
+            
+                <span itemscope itemtype="http://schema.org/Person"><a href="https://www.kth.se/profile/556/" class="profileLink" itemprop="url"><span class="profilepicture size31"><img src="https://www.kth.se/social/upload/3934/lasse_31.jpg" alt="" width="31" height="31" itemprop="image"></span> <span class="label" itemprop="name">Lars Arvestad</span></a></span>
+                 (Teacher)
+                commented
+            
+            <span class="time" title="3 December 2013 at 09:10">Tuesday at 09:10</span>
+
+            
+        </div>
+        
+            <div class="abstract">
+                 <p>Deadline is this term, but preferrably before christmas break.</p>
+            </div>
+            <div class="footer">
+              <div class="like reveal-on-hover">
+                
+                <form style="float:left;" class="like " action="/social/course/DD2404/subgroup/appbio13/page/reducing-noise-in-protein-mult-2/add-like/" method="post"><input type="hidden" name="ref-anchor" value="525294f0f276543ba5fad898"><input type="hidden" name="anchor" value="comment4"><a href="/social/course/DD2404/subgroup/appbio13/page/reducing-noise-in-protein-mult-2/add-like/" class="button-to-text">Like</a></form>
+              </div>
+
+                
+	                
+	                <div class="abuse reveal-on-hover"><a class="reportAbuse None" title="You can report content that violates the law or our Terms and Conditions" href="/social/user/_report_/abuse/?url=https%3A%2F%2Fwww.kth.se%2Fsocial%2Fcourse%2FDD2404%2Fsubgroup%2Fappbio13%2Fpage%2Freducing-noise-in-protein-mult-2%2F%23comment4">Report abuse</a></div>
+                
+            </div>
+        
+        
+    </div>
+
+
+			    </div>
+			    
+				    <div id="postForm">
+				        
+
+
+    
+        <div class="postForm comment">
+
+            
+                <span class='profilepicture size31' title='Minh Khoa Nguyen (User has no public profile)'><img src='https://www.kth.se/social/static/images/missing-profile-image.png' alt='' width='31' height='31'></span>
+            
+
+            <form action="/social/home/private/page/reducing-noise-in-protein-mult-2/add-comment/"
+                  method="post"
+                  enctype="multipart/form-data"
+                  onsubmit="return !$('#id_force_notify').is(':checked') || confirm('Informerar prenumeranter via epost oavsett deras inställningar för epostnotifering. Bör endast användas i undantagsfall. \nÄr du säker på att du vill göra detta?');">
+                <div class="postFormOuter">
+                    <div class="postFormInner">
+                        <div class="mainTextField">
+                            
+                            <textarea rows="10" name="content" cols="40" placeholder="Comment on this the page" id="comment_to_525294f0f276543ba5fad898" class="tinymce"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="postFormBottom">
+                    <div class="optionBar">
+                        
+                        
+                            <div class="optionBarField">
+                                <span class="grants_description"><span title="This show who may see the content. Comments get the same visibility. If you want to have a different visibility create a new post instead.">All logged in users can read</span></span>
+                            </div>
+                        
+
+                    </div>
+
+                </div>
+                
+                <div style="clear:right;">
+                    
+                        <p class="postButton"><a class="cancel" href="javascript:." onclick="tinymce_control.editor.cancel($(this).closest('form')); return false;">Cancel</a><input type="submit" value="Comment"/></p>
+                    
+                </div>
+            </form>
+        </div>
+    
+
+
+				    </div>
+				
+			</div>
+		</div> 
+	</div>
+</div>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			if (! $("div.activities").children().size()) {
+				$("div.postForm").addClass("callToAction");
+			}
+		});	
+	</script>
+
+
+            </div>
+        
+
+        <div class="metadata articleFooter" style="">
+            <div style="float:left;">
+                <div id="grants">
+                    <p>All logged in users can read.</p>
+                </div>
+                <div class="lastChange">
+                <p>Last changed: 2013-11-13 11:24.
+                    
+                        <a class="history" href="/social/course/DD2404/subgroup/appbio13/page/reducing-noise-in-protein-mult-2/history/">Show versions</a>
+                    
+                </p>
+                </div>
+
+            <!-- Start Tags -->
+
+
+                <div class="metagroup">
+                    <div class="metadata" id="tagChangeForm">
+                        <span class="tags">
+                            Tags:
+                            
+                                None so far.
+                            
+                        </span>
+                        
+                            <div class="seperatebody">
+                                <div class="summary">Add</div>
+                                <div class="body">
+                                    
+                                    
+
+
+
+    <form action="/social/home/private/page/reducing-noise-in-protein-mult-2/add-tags/" class="small" method="post">
+        <p>
+        
+            <span class="fieldWrapper">
+                
+                <input autocomplete="off" name="tags-tags" maxlength="255" type="text" class="tagField" id="id_tags-tags" />
+            </span>
+        
+
+          <input class="" type="submit" value="Add"/>
+        </p>
+    </form>
+
+
+                                </div>
+                            </div>
+                        
+                    </div>
+                </div>
+
+
+        <!-- End Tags -->
+
+
+
+            </div>
+            <div class="" style="clear:both;">
+                <div class="watchStatus">
+                    
+                        
+                            <a href="/social/course/DD2404/subgroup/appbio13/page/reducing-noise-in-protein-mult-2/add-watcher/">Follow this page</a>
+                        
+                    
+                </div>
+                <div style="float:left;">
+                
+                    <a class="reportAbuse None" title="You can report content that violates the law or our Terms and Conditions" href="/social/user/_report_/abuse/?url=https%3A%2F%2Fwww.kth.se%2Fsocial%2Fcourse%2FDD2404%2Fsubgroup%2Fappbio13%2Fpage%2Freducing-noise-in-protein-mult-2%2F">Report abuse</a>
+                
+                </div>
+            </div>
+
+
+            
+
+        </div>
+    </div>
+
+    
+
+
+    </div>
+  </article>
+ </div>
+
+      </div>
+    </div>
+
+     
+  
+
+
+<nav>
+ 
+  <div id="standardNavigation" class="standardNavigation">
+  <div class="menu-nav-helper" id="small-menu">
+    <a id="menu-bottom" href="#menu-bar" class="jump-target">Menu</a>
+  </div>
+
+    
+      
+        
+          
+
+
+<h2><a href="/social/course/DD2404/">Applied Bioinformatics</a></h2>
+
+<div class="courseData">
+  DD2404 | 7.5 credits
+  <div class="mystatus"><img src="/social/static/images/progress/admitted.png" title="Antagen, ännu inte kursregistrerad" alt="Antagen" width="21" height="21"></div>
+</div>
+
+
+
+
+
+
+
+  
+
+
+<ul class="pagetree tools">
+ <li>
+ <div class="menuRow">
+      <span class="menuSubSectionName">
+          <span class="icon-cog"></span>Tools
+      </span>
+ </div>
+ <ul class="pagetree">
+
+  
+  <li class=""><div class="menuRow"><a href="/social/course/DD2404/subscription/">My settings</a></div></li>
+  
+  
+  
+  <li class="">
+    <div class="menuRow">
+      <a href="/social/course/DD2404/contenttools/">Create, manage content</a>
+    </div>
+    <ul>
+      <li class="">
+        <div class="menuRow">
+          <a class=""
+             href="/social/course/DD2404/createpost/#postForm">
+            New post
+          </a>
+        </div>
+      </li>
+     
+      
+
+      <li class="">
+        <div class="menuRow">
+          <a class=""
+             href="/social/course/DD2404/createpage/">
+            <span class="icon-plus-circled"></span>New wiki page</a>
+        </div>
+      </li>
+      
+      
+    
+        
+        
+      <li class="trashcan"><div class="menuRow"><a href="/social/course/DD2404/trashcan/">Trash can</a></div></li>
+    </ul>
+  </li>
+    
+  
+  
+  
+  <li class="">
+    <div class="menuRow">
+      <a href="/social/course/DD2404/discovertools/">Find content</a>
+    </div>
+    <ul>
+         <li class=""><div class="menuRow"><a href="/social/course/DD2404/pages/">Page overview</a></div></li>
+         <li class=""><div class="menuRow"><a href="/social/course/DD2404/posts/">Post archive</a></div></li>
+         <li class=""><div class="menuRow"><a href="/social/course/DD2404/tags/">Show content by tags</a></div></li>
+         
+           <li class=""><div class="menuRow"><a href="/social/course/DD2404/other_subgroups/">Course rounds/ groups</a></div></li>
+         
+         <li class="">
+               <div class="menuRow">
+                <a href="/social/course/DD2404/search/">
+                  <span class="icon-search"></span>
+                  Search within the course
+                </a>
+              </div>
+         </li>
+    </ul>
+  </li>
+  
+ </ul>
+ </li> 
+</ul>
+ 
+
+ 
+<ul>
+  
+    <li><div class="menuRow"><a href="/social/course/DD2404/">Course overview</a></div></li>
+  
+
+  
+    <li><div class="menuRow"><a href="/social/course/DD2404/news/">News feed</a></div></li>
+  
+
+  
+    <li><div class="menuRow"><a class="calendar" href="/social/course/DD2404/calendar/">Schedule</a></div></li>
+  
+
+  
+
+  
+    <li> <ul class="pagetree"><li class="admin_pages no-initial-hide"><div class="menuRow"> <span>Allmänt</span> </div> <ul><li id="content_521329bcf276543191e16bc4">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/page/docs-and-links/">Docs and links</a>
+                </div></li><li><div class="menuRow withGrayArrowLink"> <a class="standardLink" href="http://www.kth.se/student/kurser/kurs/DD2404/?l=en">Kursplan m.m.</a> </div></li><li><div class="menuRow withGrayArrowLink"> <a class="standardLink" href="http://www.kth.se/en/csc/student/hederskodex/">Hederskodex</a> </div></li></ul> </li></ul> </li>
+  
+    <li> <ul class="pagetree"><li class="wiki_pages no-initial-hide">
+                    <div class="menuRow hidden-links withRightActionLink"> 
+                        <a class="right reveal-on-hover " href="/social/course/DD2404/createpage/?in_wiki=174687">New wiki page</a>
+                        <span class="menuSubSectionName">Course wiki</span> 
+                    </div> <ul><li id="content_5252943bf27654449b9008ad">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/page/ht-2013-tmbim/">HT 2013 TMBIM</a>
+                </div></li></ul> </li></ul> </li>
+  
+    <li> <ul class="pagetree"><li class="subgroup_pages no-initial-hide"><div class="menuRow"> <span>appbio13</span> </div> <ul><li id="content_525294ecf276543ba5fad878">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/prior-to-course-52/">Prior to course</a>
+                </div> <ul><li id="content_525294ecf276543ba5fad879">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/required-reading-46/">Required reading</a>
+                </div></li></ul> </li><li id="content_525294ecf276543ba5fad87a">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/course-contents-48/">Course contents</a>
+                </div> <ul><li id="content_525294ecf276543ba5fad87b">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/computer-labs-3/">Computer labs</a>
+                </div> <ul><li id="content_525294ecf276543ba5fad87c">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/lab-1-5/">Lab 1</a>
+                </div> <ul><li id="content_525294edf276543ba5fad87d">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/unix-introduction-2/">Unix introduction</a>
+                </div></li><li id="content_525294edf276543ba5fad87e">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/working-in-unix-2/">Working in Unix</a>
+                </div></li><li id="content_525294edf276543ba5fad87f">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/random-dna-sequences-2/">Random DNA sequences</a>
+                </div></li><li id="content_525294edf276543ba5fad880">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/reading-stockholm-files-2/">Reading Stockholm files</a>
+                </div></li><li id="content_525294edf276543ba5fad881">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/re-formatting-dna-2/">Re-formatting DNA</a>
+                </div></li><li id="content_525294edf276543ba5fad882">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/translate-dna-3/">Translate DNA</a>
+                </div></li></ul> </li><li id="content_525294edf276543ba5fad883">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/lab-2-5/">Lab 2</a>
+                </div> <ul><li id="content_525294eef276543ba5fad884">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/download-genomes-2/">Download genomes</a>
+                </div></li><li id="content_525294eef276543ba5fad885">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/compute-gc-content-2/">Compute GC content</a>
+                </div></li><li id="content_525294eef276543ba5fad886">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/comparing-base-composition-2/">Comparing base composition</a>
+                </div></li><li id="content_525294eef276543ba5fad887">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/compatibility-2/">Compatibility</a>
+                </div></li><li id="content_525294eef276543ba5fad888">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/advanced-assignment-3/">Advanced assignment</a>
+                </div></li></ul> </li><li id="content_525294eef276543ba5fad889">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/lab-3-4/">Lab 3</a>
+                </div> <ul><li id="content_525294eef276543ba5fad88a">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/translate-dna-4/">Translate DNA</a>
+                </div></li><li id="content_525294eff276543ba5fad88b">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/motif-filter-2/">Motif filter</a>
+                </div></li><li id="content_525294eff276543ba5fad88c">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/kleek-aligned-2/">KLEEK aligned?</a>
+                </div></li><li id="content_525294eff276543ba5fad88d">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/remote-blast-2/">Remote Blast</a>
+                </div></li><li id="content_525294eff276543ba5fad88e">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/blast-parsing-2/">Blast parsing</a>
+                </div></li></ul> </li><li id="content_525294eff276543ba5fad88f">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/lab-4-5/">Lab 4</a>
+                </div> <ul><li id="content_525294eff276543ba5fad890">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/using-biomart-2/">Using BioMart</a>
+                </div></li><li id="content_525294eff276543ba5fad891">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/your-own-database-2/">Your own database</a>
+                </div></li><li id="content_525294eff276543ba5fad892">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/querying-ensembl-2/">Querying Ensembl</a>
+                </div></li><li id="content_525294f0f276543ba5fad893">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/advanced-assignment-4/">Advanced assignment</a>
+                </div></li></ul> </li></ul> </li><li id="content_525294f0f276543ba5fad894">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/project-28/">Project</a>
+                </div> <ul><li id="content_525294f0f276543ba5fad895">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/controls-2/">Controls</a>
+                </div></li><li id="content_525294f0f276543ba5fad896">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/project-grading-3/">Project grading</a>
+                </div></li><li id="content_525294f0f276543ba5fad897">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/project-list-2/">Project list</a>
+                </div> <ul><li id="content_525294f0f276543ba5fad898" class="current"><div class="menuRow"> <span>Reducing noise in protein multialignments</span> </div></li><li id="content_525294f0f276543ba5fad899">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/how-often-are-domains-single-e-2/">How often are domains single-exon?</a>
+                </div></li><li id="content_525294f0f276543ba5fad89a">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/unravel-motifs-in-utrs-and-int-2/">Unravel motifs in UTRs and introns</a>
+                </div></li></ul> </li></ul> </li><li id="content_525294f1f276543ba5fad89b">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/tools-4/">Tools</a>
+                </div></li><li id="content_528b702ff276541760a3cd94">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/lecture-plan-5/">Lecture plan</a>
+                </div></li></ul> </li><li id="content_525294f1f276543ba5fad89f">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/examination-147/">Examination</a>
+                </div></li><li id="content_525294f1f276543ba5fad8a0">
+                <div class="menuRow">
+                    <a href="/social/course/DD2404/subgroup/appbio13/page/course-analysis-19/">Course analysis</a>
+                </div></li></ul> </li></ul> </li>
+  
+</ul>
+
+
+
+        
+        
+      
+    
+    
+  </div>
+</nav>
+
+
+
+
+
+    <footer>
+      <div id="footer">
+	               <div class="tlc cid-1_202278 block columnSplitter  using4columns noLabel">
+<div class="columns"> 
+<div class="column column1">
+<div class="columnInner">        <div class="tlc cid-1_202279 block list links defaultTheme"> 
+<h3>KTH</h3>  
+<ul> 
+<li><span class="arrow"></span> <a href="http://www.kth.se/en/studies" class="standardLink">Study at KTH</a></li> 
+<li><span class="arrow"></span> <a href="http://www.kth.se/en/forskning" class="standardLink">Research</a></li> 
+<li><span class="arrow"></span> <a href="http://www.kth.se/en/samverkan" class="standardLink">Cooperation</a></li> 
+<li><span class="arrow"></span> <a href="http://www.kth.se/en/om" class="standardLink">About KTH</a></li> 
+<li><span class="arrow"></span> <a href="http://www.kth.se/en/student" class="standardLink">Student at KTH</a></li> 
+<li><span class="arrow"></span> <a href="http://intra.kth.se/en" class="standardLink">KTH Intranet</a></li> 
+</ul>  </div>
+  
+</div>
+</div> 
+<div class="column column2">
+<div class="columnInner">        <div class="tlc cid-1_202289 block list links defaultTheme"> 
+<h3>Organisation</h3>  
+<ul> 
+<li><span class="arrow"></span> <a href="http://www.kth.se/en/kthb" class="standardLink">KTH Library</a></li> 
+<li><span class="arrow"></span> <a href="http://www.kth.se/om/organisation/skolor/kth-s-skolor-1.3848?l=en_UK" class="standardLink">KTH Schools</a></li> 
+<li><span class="arrow"></span> <a href="http://www.kth.se/om/organisation/centrumbildningar-1.11756?l=en_UK" class="standardLink">Competence centres</a></li> 
+<li><span class="arrow"></span> <a href="http://www.kth.se/om/organisation/rektorsgruppen-1.15623?l=en_UK" class="standardLink">President</a></li> 
+<li><span class="arrow"></span> <a href="http://www.kth.se/om/organisation/uf?l=en_UK" class="standardLink">University administration</a></li> 
+</ul>  </div>
+  
+</div>
+</div> 
+<div class="column column3">
+<div class="columnInner">        <div class="tlc cid-1_202317 block list links defaultTheme"> 
+<h3>Services</h3>  
+<ul> 
+<li><span class="arrow"></span> <a href="http://www.kth.se/student/schema?l=en_UK" class="standardLink">Timetables</a></li> 
+<li><span class="arrow"></span> <a href="http://www.kth.se/student/kurser/?l=en_UK" class="standardLink">Course and programme directory</a></li> 
+<li><span class="arrow"></span> <a href="https://www.kth.se/social/" class="standardLink">KTH Social</a></li> 
+<li><span class="arrow"></span> <a href="https://webmail.kth.se/" class="standardLink">Webmail</a></li> 
+</ul>  </div>
+  
+</div>
+</div> 
+<div class="column column4">
+<div class="columnInner">           <div class="tlc cid-1_260113 block teaser   leftFloating  noMedia">      
+<div class="teaserText">
+<div class="teaserTextInner">       
+<h2>Contact</h2>            
+<div class="paragraphs">       <div class="tlc cid-1_202325 block contactInfo">
+<address class="vcard">
+<span class="org">KTH Royal Institute of Technology</span>
+<span class="fn">KTH Royal Institute of Technology</span>
+<span class="adr">  
+<span class="postalcode">SE-100 44</span>  
+<span class="locality">Stockholm</span>  
+<span class="country-name">Sweden</span>  
+<span class="tel">+46 8 790 60 00</span>   
+</span>
+</address> </div>    <div class="tlc cid-1_391238 block separator space"><span class="separatorInner"></span></div>
+<p>
+	            <span class="tlc cid-1_401585 block link  standardLink"><a href="http://www.kth.se/en/om/kontakt/kontaktformular-1.349416" class="standardLink">Contact KTH</a></span></p><table cellpadding="1" cellspacing="1">
+	<tbody>
+		<tr>
+			<td colspan="1" rowspan="1">
+				
+				     <div class="tlc cid-1_391581 block figure ">       
+<div class="imageWrapper">   <a href="http://www.facebook.com/KTH"><img src="/polopoly_fs/1.391581!/image/facebook-50.png" alt="KTH on Facebook" height="66" width="60" title="KTH on Facebook"></a>    
+</div> 
+ </div> 
+
+			</td>
+			<td colspan="1" rowspan="1">
+				            <span class="tlc cid-1_391583 block link  standardLink"><a href="http://www.facebook.com/KTH" class="standardLink">KTH on Facebook</a></span></td>
+		</tr>
+		<tr>
+			<td colspan="1" rowspan="1">
+				
+				     <div class="tlc cid-1_391607 block figure ">       
+<div class="imageWrapper">   <a href="http://www.youtube.com/kth"><img src="/polopoly_fs/1.391607!/image/youtube-50.png" alt="KTH on YouTube" height="57" width="60" title="KTH on YouTube"></a>    
+</div> 
+ </div> 
+
+			</td>
+			<td colspan="1" rowspan="1">
+				            <span class="tlc cid-1_391611 block link  standardLink"><a href="http://www.youtube.com/kth" class="standardLink">KTH on YouTube</a></span></td>
+		</tr>
+	</tbody>
+</table>
+</div> 
+  
+</div>
+</div> </div>
+  
+</div>
+</div> 
+</div> </div> 
+ 
+	    </div>
+    </footer>
+
+  </div>
+
+    </body>
+</html>
