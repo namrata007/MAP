@@ -1,0 +1,10 @@
+#!/bin/sh
+
+python gen_tree.py ../data/2013-12-13/dist_mat_from_original_data/asymmetric_0.5/ phy phylip  ../data/2013-12-13/tree_from_original_data/asymmetric_0.5/ nwk newick
+python gen_tree.py ../data/2013-12-13/dist_mat_from_original_data/asymmetric_1.0/ phy phylip  ../data/2013-12-13/tree_from_original_data/asymmetric_1.0/ nwk newick
+python gen_tree.py ../data/2013-12-13/dist_mat_from_original_data/asymmetric_2.0/ phy phylip  ../data/2013-12-13/tree_from_original_data/asymmetric_2.0/ nwk newick
+
+python gen_tree.py ../data/2013-12-13/dist_mat_from_original_data/symmetric_0.5/ phy phylip  ../data/2013-12-13/tree_from_original_data/symmetric_0.5/ nwk newick
+python gen_tree.py ../data/2013-12-13/dist_mat_from_original_data/symmetric_1.0/ phy phylip  ../data/2013-12-13/tree_from_original_data/symmetric_1.0/ nwk newick
+python gen_tree.py ../data/2013-12-13/dist_mat_from_original_data/symmetric_2.0/ phy phylip  ../data/2013-12-13/tree_from_original_data/symmetric_2.0/ nwk newick
+

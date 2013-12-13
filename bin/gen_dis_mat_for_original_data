@@ -1,0 +1,10 @@
+#!/bin/sh
+
+python cal_diff_matrix.py ../data/appbio11/asymmetric_0.5/ msl fasta  ../data/2013-12-13/dist_mat_from_original_data/asymmetric_0.5/ phy phylip
+python cal_diff_matrix.py ../data/appbio11/asymmetric_1.0/ msl fasta  ../data/2013-12-13/dist_mat_from_original_data/asymmetric_1.0/ phy phylip
+python cal_diff_matrix.py ../data/appbio11/asymmetric_2.0/ msl fasta  ../data/2013-12-13/dist_mat_from_original_data/asymmetric_2.0/ phy phylip
+
+python cal_diff_matrix.py ../data/appbio11/symmetric_0.5/ msl fasta  ../data/2013-12-13/dist_mat_from_original_data/symmetric_0.5/ phy phylip
+python cal_diff_matrix.py ../data/appbio11/symmetric_1.0/ msl fasta  ../data/2013-12-13/dist_mat_from_original_data/symmetric_1.0/ phy phylip
+python cal_diff_matrix.py ../data/appbio11/symmetric_2.0/ msl fasta  ../data/2013-12-13/dist_mat_from_original_data/symmetric_2.0/ phy phylip
+
