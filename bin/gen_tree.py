@@ -1,7 +1,7 @@
 import sys
 import os
 
-def batchfile(inputdirectory, extension):
+def getfilenames(inputdirectory, extension):
 	Total_files=[]
 	try:
 		for file in os.listdir(inputdirectory):
@@ -13,30 +13,33 @@ def batchfile(inputdirectory, extension):
 	return Total_files
 
 
-if len(sys.argv)!= 7:
-	print 'Syntax: python cal_diff_matrix.py indir inext intype outdir outext outtype \n' + \
+if len(sys.argv)!= 5:
+	print 'Syntax: python gen_tree.py indir inext outdir outext\n' + \
 		'indir, outdir: input and output directories containing input and output files\n' +\
-		'inext, outext: extensions of input and output file\n' + \
-		'intype, outtype: format of the files, only accept either "fasta" or "phylip"\n'
+		'inext, outext: extensions of input and output file\n'
 	sys.exit(-1)
 
+subfolders = ['asymmetric_0.5','asymmetric_1.0','asymmetric_2.0',\
+				'symmetric_0.5','symmetric_1.0','symmetric_2.0',]
 indir = sys.argv[1]
 inext = sys.argv[2]
-intype = sys.argv[3]
+outdir = sys.argv[3]
+outext = sys.argv[4]
 
-outdir = sys.argv[4]
-outext = sys.argv[5]
-outtype = sys.argv[6]
-
-#look for all files with extension inext in the directory indir
-file_list = batchfile(indir, inext)
-if len(file_list) == 0:
-	print 'No files with the extension given found'
-	sys.exit(-1)
-
-for file_name in file_list:
-	infile_path = indir + '/' + file_name
-	outfile_path = outdir + '/' + file_name + '.' + outext
-
-	command = "fnj -I " + intype + " " + infile_path + " -O " + outtype + " -o " + outfile_path
+#create all the subfolders in outdir
+for subfolder_name in subfolders:
+	inpath = indir + '/' + subfolder_name
+	filename_list = getfilenames(inpath,inext)
+	if len(filename_list) == 0:
+		print "No files with the extension ." + inext + " are found in " + inpath
+		continue
+	
+	#create a folder with the same subfolders' names in outpath
+	outpath = outdir + '/' + subfolder_name
+	command = "mkdir " + outpath
 	os.system(command)
+	for filename in filename_list:
+		infile_path = inpath + '/' + filename
+		outfile_path = outpath + '/' + filename + '.' + outext
+		command = "fastprot -I fasta " + infile_path + " -O phylip |fnj -I phylip -O newick  -o " + outfile_path
+		os.system(command)
