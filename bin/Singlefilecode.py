@@ -1,0 +1,88 @@
+#The program takes in a fasta file containing noisy alignments and
+#output noise-reduced alignments.
+#a column is considered noisy if
+# 1) there are more than 50% indels,
+# 2) at least 50% of amino acids are unique,
+# 3) no amino acid appears more than twice.
+#
+#Syntax: >>python map.py input_file output_file
+#E.g. >>python map.py ..\data\appbio11\asymmetric_0.5\s001.align.1.msl output
+import sys
+from Bio import AlignIO
+from Bio.Align import MultipleSeqAlignment
+from Bio.Alphabet import generic_protein
+from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
+
+if len(sys.argv)<3:
+        sys.stderr.write("Syntax: python map.py input_file output_file \n" + \
+                "Example: python map.py ..\data\appbio11\asymmetric_0.5\s001.align.1.msl output")
+        sys.exit(-1)
+
+try:
+        seqs = [] #store the protein sequences
+        seq_ids = [] #store the names of the protein sequences in seqs accordingly
+        seq_descs = [] #store the descriptions of the protein sequences
+        for record in AlignIO.read(sys.argv[1],'fasta'):
+                #seqs.append(bytearray(str(record.seq)))
+                seqs.append(str(record.seq))
+                seq_descs.append(record.description)
+                seq_ids.append(record.id)
+        
+        num_col = len(seqs[0]) #get the number of columns
+        print 'number of columns = ', num_col
+        print 'number of sequences = ', len(seqs)
+	check= len(seqs)
+	total= 0        
+        #Check if all sequences have the same length
+        #If the don't have the same length, issue warning
+        for i in range(1,len(seqs),1):
+                if len(seqs[i]) != num_col:
+                        print "Warning: The sequences don't have the same length"
+                        break
+
+        #go from last column to first column
+        for col in range(num_col-1,-1,-1):
+                #check if the column is noisy
+                count = {}                                 #count of 20 different types of aa
+                for seq in seqs:                 #go through all the sequences
+                        print(seq[col])
+                        if seq[col] in 'ARNDCEQGHILKMFPSTWYV':
+                                if seq[col] in count:
+                                        count[seq[col]] += 1
+                                else:
+                                        count[seq[col]] = 1
+				if (seq[col]=='-'):
+                     			total+=1
+ 		noisy2 = False
+		
+		if((len(count)>=(check/2)) or (total>(check/2)) or (len(count)>=(check/2)) and (total>(check/2))):#checks first and second criteria
+            		noisy2= True
+        	else:
+            		noisy2= False
+
+                print 'count = ',count #print count of all types of aa                
+                noisy3 = True
+                for k in count:
+		         if (count[k]>2):                 # check for non-noise
+                                noisy3 = False
+				break
+                if noisy3 or noisy2:
+                        for i in range(len(seqs)):
+				
+                                #remove column col in seq
+                                seqs[i] = seqs[i][:col] + seqs[i][col+1:]
+                                #del seq[col]
+				
+		
+        #write the result to output
+        align = MultipleSeqAlignment([])
+        for i in range(len(seqs)):
+                align.append(SeqRecord(Seq(seqs[i],generic_protein),id=seq_ids[i],description=seq_descs[i]))
+                #align.append(SeqRecord(Seq(str(seqs[i]),generic_protein),id=seq_ids[i],description=seq_descs[i]))
+        AlignIO.write(align, sys.argv[2],"fasta")
+        
+except IOError as e:
+        print "I/O error({0}): {1}".format(e.errno, e.strerror)
+        sys.exit(-1)
+
