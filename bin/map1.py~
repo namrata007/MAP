@@ -53,8 +53,7 @@ try:
 				else:
 					count[seq[col]] = 1
 		print 'col = ',col
-		print 'count = ',count               #print count of all types of aa	
-		raw_input('abc')	
+		print 'count = ',count               #print count of all types of aa		
 		noisy = True
 		for k in count:
 			if (k>2):  		# check for non-noise
