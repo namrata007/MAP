@@ -1,0 +1,20 @@
+Prepared by Namrata
+
+Tasks completed:
+
+Combining all 3 conditions for noise reduction for a single .msl file
+
+Steps:
+
+1) Conditions merged in a single loop
+2) Variable usability increased and repetition reduced
+
+Future work:
+1) To work with batch files
+2) Developing modularity i.e functions for different tasks
+  
+ 
+
+
+	
+
