@@ -30,8 +30,8 @@ try:
                 seq_ids.append(record.id)
         
         num_col = len(seqs[0]) #get the number of columns
-        print 'number of columns = ', num_col
-        print 'number of sequences = ', len(seqs)
+        #print 'number of columns = ', num_col
+        #print 'number of sequences = ', len(seqs)
 	check= len(seqs)
 	total= 0        
         #Check if all sequences have the same length
@@ -46,7 +46,6 @@ try:
                 #check if the column is noisy
                 count = {}                                 #count of 20 different types of aa
                 for seq in seqs:                 #go through all the sequences
-                        print(seq[col])
                         if seq[col] in 'ARNDCEQGHILKMFPSTWYV':
                                 if seq[col] in count:
                                         count[seq[col]] += 1
@@ -61,7 +60,7 @@ try:
         	else:
             		noisy2= False
 
-                print 'count = ',count #print count of all types of aa                
+                #print 'count = ',count #print count of all types of aa                
                 noisy3 = True
                 for k in count:
 		         if (count[k]>2):                 # check for non-noise
