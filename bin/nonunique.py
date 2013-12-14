@@ -15,9 +15,10 @@ if len(sys.argv)<2:
 
 #parameter list for checking noisy columns
 count={} #stores each amino acid and its total occurence in the alignment
-total=0
+total=temp=0
 noisyones=nonnoisy=0
-result=[] #stores a list of noisy and non noisy columns based on second criteria
+remove=[] #stores a list of noisy columns based on second criteria
+keep=[] #stores a list of non noisy columns based on second criteria
 
 try:
     seqs = []     #store the protein sequences
@@ -28,7 +29,7 @@ try:
     num_col = len(seqs[0])   #get the number of columns
     
 #Check if all sequences have the same length
-#If they don't have the same length, issue warning
+#If the don't have the same length, issue warning
     for i in range(1,len(seqs),1):
         if len(seqs[i]) != num_col:
             print "Warning: The sequences don't have the same length"
@@ -39,32 +40,39 @@ try:
 
 
  #go from first column to last column
-    for col in range(0,num_col,1):
+    for col in range(0,num_col):
  #check if the column is noisy based on second criteria
         noisy = False
         for seq in seqs:
                     if seq[col] in 'ACDEFGHIKLMNPQRSTVWY':
-                        total+=1
                         each=seq[col]
                         if each in count:
                             count[each]=count[each]+1
                         else:
                             count[each]=1
     
-        if(len(count)>=(total/2)): #checks if atleast fifty percent of the amino acids are unique
+        if(len(count)>=((len(seqs))/2)): #checks if atleast fifty percent of the amino acids are unique
             noisy= True
         else:
             noisy= False
         
         if noisy:
             noisyones=noisyones+1
-            result.append(1) #Appends 1 for each noisy column in the list
+            temp=col+1
+            remove.append(temp) #Appends each noisy column in the list
+            temp=0
         else:
             nonnoisy=nonnoisy+1
-            result.append(0) #Appends 0 for each non noisy column in the list
+            temp=col+1
+            keep.append(temp) #Appends each non noisy column in the list
+            temp=0
+        noisy =False
+        count={}
     
-    print 'Noisy columns:',noisyones,' Non noisy columns:',nonnoisy
-    print result
+    print 'Noisy columns:',noisyones,' Non noisy columns:',nonnoisy,'\n'
+    print 'Remove: ',remove,'\n','\n'
+    print 'Keep: ',keep
+
 
 except IOError as e:
     print "I/O error({0}): {1}".format(e.errno, e.strerror)
