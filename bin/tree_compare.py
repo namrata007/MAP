@@ -21,11 +21,8 @@ def getfilenames(inputdirectory, extension):
 	return Total_files
 
 def tree_compare(treefile1,treefile2):
-	treefile1 = treefile1
-	treefile2 = treefile2
 	tree1 = dendropy.Tree.get_from_path(treefile1,"newick")
 	tree2 = dendropy.Tree.get_from_path(treefile2,"newick")
-	#REMOVE THE WEIGHT EDGES FROM THE TREES: not done
 	return tree1.symmetric_difference(tree2)
 
 if len(sys.argv)!= 4:
@@ -47,8 +44,8 @@ outfile.write('Reference tree: '+reftree+'\n')
 outfile.write('treefilename\tSymmetric_difference\nEuclidian_distance\tRobinson_Foulds_distance\n')
 for treefilename in treefilenames:
 	treefilepath = compdir + '/' + treefilename
-	symdist, eucdist, robdist = tree_compare(reftree,treefilepath)
-	outfile.write(treefilename + '\t' + str(symdist) + '\t' + str(eucdist) + '\t' + str(robdist))
+	symdist = tree_compare(reftree,treefilepath)
+	outfile.write(treefilename + '\t' + str(symdist) + '\n')
 outfile.close()
 
 
