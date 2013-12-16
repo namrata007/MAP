@@ -1,0 +1,19 @@
+Prepared by Shalini:
+
+Aim:
+    To run trimAl for the input sequences and obtain a trimmed alignment based on an automated trimAl algorithm.
+    
+Input:
+      A batch file code that reads the input alignment sequences from all the six specified input folders and run the trimAl command.
+
+Idea:
+1. Receive the input files sequentially using batch file code.
+2. Run the trimAl command to trim the input alignments based on "automated1" algorithm and save the trimmed outputs in specified output folders.
+3. Run the trimAl command with the same "automated1" algorithm and to save a few results in HTML format.
+4. Use the HTML format for viewing of trimmed alignments.
+
+Output:
+       Output folders with each input alignment trimmed using trimAl was obtained.
+
+Future work:
+       To apply the same idea for trimming noisy columns using Gblocks.
