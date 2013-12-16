@@ -1,3 +1,0 @@
-Reference tree: ../data/appbio11/asymmetric_0.5/asymmetric_0.5.tree
-treefilename	Symmetric_difference
-Euclidian_distance	Robinson_Foulds_distance
