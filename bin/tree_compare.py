@@ -41,7 +41,7 @@ treefilenames = getfilenames(compdir, treeext)
 outputfile = compdir + '/' + 'tree_compare_results.txt'
 outfile = open(outputfile,'w')
 outfile.write('Reference tree: '+reftree+'\n')
-outfile.write('treefilename\tSymmetric_difference\nEuclidian_distance\tRobinson_Foulds_distance\n')
+outfile.write('treefilename\t\t\tSymmetric_difference\n')
 for treefilename in treefilenames:
 	treefilepath = compdir + '/' + treefilename
 	symdist = tree_compare(reftree,treefilepath)
