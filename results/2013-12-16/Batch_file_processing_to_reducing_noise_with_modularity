@@ -1,0 +1,36 @@
+Prepared by Namrata:
+
+Aim:
+
+    To read multiple files from a folder, process them to reduce noise based on 3 conditions.
+    Column is considered noisy if
+	 1) there are more than 50% indels,
+	 2) at least 50% of amino acids are unique,
+	 3) no amino acid appears more than twice.
+	
+
+Input:
+
+    Path to the folder where files are present, extension of files to be read, folder where processed files are to be stored
+
+Algorithm:
+
+Step 1: Call batchfile function with arguments as the folder path and extension of file to be read as batchfile(inputdirectory, extension))
+It reads all files and appends them to a list Total_files.
+
+Step 2: Call readfile function with arguments as input directory and Total files to be read as readfile(inputdirectory,Total_files). It reads each file one by one.
+
+Step 3: In readfile funtion, call processing function with sequences and total columns in each file as processing(seqs, num_col). It returns sequences with reduced noise 
+
+Step 4: In processing funtion, call delete function with check for 3 conditions and column that is found noisy as delete(noisy2, noisy3, seqs, col). It deletes noisy column. Here noisy2 condition includes both condition 1 and 2 check and noisy3 is for condition 3. 
+
+Step 5: In readfile funtion, call writing function with reduced noise sequence ,sequence description ,sequence id and file name as writing(seqs,seq_descs,seq_ids,Total_files[i]). It writes the reduced noise sequence in a new file with the same name and an extension as .output. 
+ 
+
+Output:
+
+       All new files with reduced noise are stored in specified folder
+
+Future work:
+
+       Generate a tree from the reduced noise MSA files
