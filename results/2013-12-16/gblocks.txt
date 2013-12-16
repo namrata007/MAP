@@ -1,0 +1,29 @@
+Prepared by Shalini:
+
+Aim:
+    To run Gblocks for the input sequences and obtain a trimmed alignment.
+    
+Input:
+1. The given input alignment sequences in .msl format.
+2. A batch file code that reads the input alignment sequences from all the six specified input folders and run the Gblocks command.
+
+Idea:
+1. Receive the input files sequentially using batch file code.
+2. Run the Gblocks command to trim the input alignments and save the trimmed outputs in specified output folders.
+3. Trimmed alignments are saved with '.txt' extension and subsequently used for tree generation.
+
+Steps:
+1. Gblocks software package was downloaded and the source code was compiled in myhome directory (Path:'/myhome/project/Gblocks_0.91b/Gblocks'). Gblocks was then run      from this specified path. A copy of the test files from MAP/data/appbio11 was also saved in this specified folder. 
+2. The python code 'gblocks.py' was run on the test files in the above specified path to obtain the trimmed output. 
+
+Parameters used:
+ 1. -t=p : Indicating the alignment file is of type Protein sequences
+ 2. -p=n : Parameter files and results in HTML format are not saved ( to save disk space)
+ 3. -e=  : Extension for output files was taken as an input argument from user. In this case, we specified it as '.txt'
+
+
+Output:
+       Output folders with each input alignment trimmed using Gblocks was obtained.
+
+Future work:
+       To obtain phylogenetic trees based on both data files obtained from Gblocks and TrimAl.
