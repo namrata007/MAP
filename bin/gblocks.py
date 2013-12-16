@@ -7,18 +7,14 @@ def getfilenames(inputdirectory, extension):
 	try:
 		for file in os.listdir(inputdirectory):
 			if file.endswith(extension) and file.startswith('s'):
-         input_handle = open(file, "rU")
-         output_handle = SeqIO.convert(input_handle, "msl", input_handle, "fasta")
-         output_handle.close()
-         input_handle.close()
-				Total_files.append(output_handle)
+         			 Total_files.append(file)
 	except:
 		print 'The input directory does not exist'
 		sys.exit(-1)
 	return Total_files
 
 
-if len(sys.argv)!= 5:
+if len(sys.argv)== 0:
 	print 'Syntax: python gen_tree.py indir inext outdir outext\n' + \
 		'indir, outdir: input and output directories containing input and output files\n' +\
 		'inext, outext: extensions of input and output file\n'
@@ -45,6 +41,9 @@ for subfolder_name in subfolders:
 	os.system(command)
 	for filename in filename_list:
 		infile_path = inpath + '/' + filename
-		outfile_path = outpath + '/' + filename + '.' + outext
-		command = "../../myhome/project/trimAl/source/trimal -in " + infile_path + " -automated1 -out  " + outfile_path
+		command = "./Gblocks " + infile_path + " -t=p -p=n -e=."+outext
 		os.system(command)
+		infile_path1= inpath+'/'+filename+'.'+outext
+		command1= "mv "+infile_path1+" "+outpath+"/"+filename+'.'+outext
+		os.system(command1)
+		

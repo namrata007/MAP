@@ -1,0 +1,15 @@
+#!/bin/sh
+
+#generating a statistics of comparison with the reference tree for each tree with extension .nwk in folder '../data/appbio11' and write the results in the file 'tree_compare_results.txt' in the respective folders under '../data/2013-12-16_gblocks/compare_trees/'
+
+python tree_compare.py ../data/appbio11/asymmetric_0.5/asymmetric_0.5.tree ../data/2013-12-16_gblocks/compare_trees/asymmetric_0.5/ nwk
+
+python tree_compare.py ../data/appbio11/asymmetric_1.0/asymmetric_1.0.tree ../data/2013-12-16_gblocks/compare_trees/asymmetric_1.0/ nwk
+
+python tree_compare.py ../data/appbio11/asymmetric_2.0/asymmetric_2.0.tree ../data/2013-12-16_gblocks/compare_trees/asymmetric_2.0/ nwk
+
+python tree_compare.py ../data/appbio11/symmetric_0.5/symmetric_0.5.tree ../data/2013-12-16_gblocks/compare_trees/symmetric_0.5/ nwk
+
+python tree_compare.py ../data/appbio11/symmetric_1.0/symmetric_1.0.tree ../data/2013-12-16_gblocks/compare_trees/symmetric_1.0/ nwk
+
+python tree_compare.py ../data/appbio11/symmetric_2.0/symmetric_2.0.tree ../data/2013-12-16_gblocks/compare_trees/symmetric_2.0/ nwk
