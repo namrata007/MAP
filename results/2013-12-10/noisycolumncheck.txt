@@ -10,10 +10,10 @@ Idea:
 1. Receive the file as a command line input argument
 2. Parse the file using Biopython and store the accesion ids and alignments in seperate lists
 3. Obtain the total number of columns in the alignment
-4. For each column check if it is noisy [Column is noisy if (types of unique amino acids present in the column)>=(total no. of amino acids in the column)]
+4. For each column check if it is noisy [Column is noisy if (types of unique amino acids present in the column)>=((total no. of amino acids in the column)/2)]
 
 Output:
-       Print a result list indicating the noisy columns as 1 and non noisy columns as 0.
+       Print result lists indicating the noisy columns in list remove and non noisy columns in list keep.
        Also print the total no. of sequences present in the alignment, total no. of columns, total no. of noisy and non noisy columns respectively for clarity.
 
 Future work:
