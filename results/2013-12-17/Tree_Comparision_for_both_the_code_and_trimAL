@@ -1,0 +1,66 @@
+Prepared by Namrata:
+
+Aim:
+
+    To read multiple files from a folder where new files with reduced noise are present for both the Batch file 
+    code and Trimal. Trees are generated for all the files in both the folders i.e 2013-12-16 for Batch file code 
+    and 2013-12-16_Trimresult for TrimAl respectively. These trees are compared with original trees in appbio11 folder.
+
+Algorithm: 
+
+Step 1: Run the gen_tree.py program with Path to the folder where files are present, extension of files to be read,
+            folder where trees are to be saved and extension of files with which it saved. 
+	./gen_tree.py ../data/2013-12-14-batch_file/results msl ../data/2013-12-16/
+	tree_from_noise_reduced_batch_file nwk             [For files processed by Batch file code]
+	./gen_tree.py ../data/2013-12-14/trimalresults msl ../data/2013-12-16_/2013-12-16_Trimresult nwk
+					[For TrimAL files generated using TrimAL] 
+Step 2: Run the tree_compare.py with Path of the original tree, path of the tree to be compared for all 6 types of trees as:
+
+	./tree_compare.py ../data/appbio11/asymmetric_0.5/asymmetric_0.5.tree ../data/2013-12-16/				        	tree_from_noise_reduced_batch_file/asymmetric_0.5 nwk
+	./tree_compare.py ../data/appbio11/asymmetric_1.0/asymmetric_1.0.tree ../data/2013-12-16/
+	tree_from_noise_reduced_batch_file/asymmetric_1.0 nwk
+	./tree_compare.py ../data/appbio11/asymmetric_2.0/asymmetric_2.0.tree ../data/2013-12-16/
+	tree_from_noise_reduced_batch_file/asymmetric_2.0 nwk
+	./tree_compare.py ../data/appbio11/symmetric_0.5/symmetric_0.5.tree ../data/2013-12-16/
+	tree_from_noise_reduced_batch_file/symmetric_0.5 nwk
+	./tree_compare.py ../data/appbio11/symmetric_1.0/symmetric_1.0.tree ../data/2013-12-16/
+	tree_from_noise_reduced_batch_file/symmetric_1.0 nwk
+	./tree_compare.py ../data/appbio11/symmetric_2.0/symmetric_2.0.tree ../data/2013-12-16/
+	tree_from_noise_reduced_batch_file/symmetric_2.0 nwk
+					[For files processed by Batch file code]
+
+	./tree_compare.py ../data/appbio11/asymmetric_0.5/asymmetric_0.5.tree ../data/2013-12-16_Trimresult/
+	asymmetric_0.5 nwk
+	./tree_compare.py ../data/appbio11/asymmetric_1.0/asymmetric_1.0.tree ../data/2013-12-16_Trimresult/
+	asymmetric_1.0 nwk
+	./tree_compare.py ../data/appbio11/asymmetric_2.0/asymmetric_2.0.tree ../data/2013-12-16_Trimresult/
+	asymmetric_2.0 nwk
+	./tree_compare.py ../data/appbio11/symmetric_0.5/symmetric_0.5.tree ../data/2013-12-16_Trimresult/
+	symmetric_0.5 nwk
+	./tree_compare.py ../data/appbio11/symmetric_1.0/symmetric_1.0.tree ../data/2013-12-16_Trimresult/
+	symmetric_1.0 nwk
+	./tree_compare.py ../data/appbio11/symmetric_2.0/symmetric_2.0.tree ../data/2013-12-16_Trimresult/
+	symmetric_2.0 nwk
+					[For TrimAL files generated using TrimAL] 
+
+Step 3: The output “tree_compare_results “ for all the  types  of alignments i.e   asymmetric_0.5, asymmetric_1.0, 
+asymmetric_2.0,  symmetric_0.5,  symmetric_1.0,  symmetric_2.0 is opened in MS Excel. It is sorted in ascending order
+and number of zeroes are counted. They represent the number of trees recovered. 
+It is done for both results generated for batch files processed by the code and TrimAL.
+
+
+Result:
+
+      Type of alignment     Tree recovered by the code      Tree recovered by TrimAl
+
+       asymmetric_0.5 		1		1
+       asymmetric_1.0		0		0
+       asymmetric_2.0		0		0
+       symmetric_0.5		29		23
+       symmetric_1.0		20		19
+       symmetric_2.0 		12		12
+
+
+Conclusion: 
+
+Desired coherency is observed in the number of trees recovered by the code and TrimAL
