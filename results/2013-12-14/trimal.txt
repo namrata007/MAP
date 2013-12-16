@@ -4,13 +4,27 @@ Aim:
     To run trimAl for the input sequences and obtain a trimmed alignment based on an automated trimAl algorithm.
     
 Input:
-      A batch file code that reads the input alignment sequences from all the six specified input folders and run the trimAl command.
+1. The given input alignment sequences in .msl format.
+2. A batch file code that reads the input alignment sequences from all the six specified input folders and run the trimAl command.
 
 Idea:
 1. Receive the input files sequentially using batch file code.
 2. Run the trimAl command to trim the input alignments based on "automated1" algorithm and save the trimmed outputs in specified output folders.
 3. Run the trimAl command with the same "automated1" algorithm and to save a few results in HTML format.
 4. Use the HTML format for viewing of trimmed alignments.
+
+Steps:
+1. TrimAl software package was downloaded and the source code was compiled in myhome directory (Path:'/myhome/project/trimAl/source/trimal'). TrimAl was then run      from this specified path.
+2. The current directory was changed to MAP/bin and 'trimal.py' python program was run to obtain the trimmed output. 
+
+Reasons For Choosing automated1 Algorithm:
+1. Out of all automatic methods available for trimming an alignment in trimAl, the heuristic approach -automated1- was considered best to trim a given alignment         Refer to (http://trimal.cgenomics.org/_media/manual.b.pdf)
+2. Using a decision tree this heuristic algorithm chooses between the gappyout and strict methods (other automated methods available in trimAl). 
+3. For this, trimAl calculates: (a) The average identity score among all the sequences in the alignment, 
+                                (b) The average identity score for each most similar pair of sequences in the alignment, 
+                                (c) The total number of sequences in the alignment.
+4. Based on these calculated values, trimAl determines which automated method would be ideal for trimming.
+
 
 Output:
        Output folders with each input alignment trimmed using trimAl was obtained.
