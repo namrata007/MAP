@@ -1,0 +1,38 @@
+Prepared by Shalini:
+
+Aim:
+
+To read multiple files from a folder where new files with reduced noise using Gblocks are present. Trees are generated for all these noise reduced alignments and compared with original reference trees in appbio11 folder.
+
+Algorithm: 
+
+Step 1: Run the gen_tree.py program with Path to the folder where files are present, extension of files to be read,
+            folder where trees are to be saved and extension of files with which it saved. 
+	
+	./gen_tree.py ../data/2013-12-16_gblocks/output_gblocks msl ../data/2013-12-16_gblocks/compare_trees nwk
+
+
+Step 2:
+
+	./tree_compare.py ../data/appbio11/asymmetric_0.5/asymmetric_0.5.tree ../data/2013-12-16_gblocks/compare_trees
+	asymmetric_0.5 nwk
+	./tree_compare.py ../data/appbio11/asymmetric_1.0/asymmetric_1.0.tree ../data/2013-12-16_gblocks/compare_trees
+	asymmetric_1.0 nwk
+	./tree_compare.py ../data/appbio11/asymmetric_2.0/asymmetric_2.0.tree ../data/2013-12-16_gblocks/compare_trees
+	asymmetric_2.0 nwk
+	./tree_compare.py ../data/appbio11/symmetric_0.5/symmetric_0.5.tree ../data/2013-12-16_gblocks/compare_trees
+	symmetric_0.5 nwk
+	./tree_compare.py ../data/appbio11/symmetric_1.0/symmetric_1.0.tree ../data/2013-12-16_gblocks/compare_trees
+	symmetric_1.0 nwk
+	./tree_compare.py ../data/appbio11/symmetric_2.0/symmetric_2.0.tree ../data/2013-12-16_gblocks/compare_trees
+	symmetric_2.0 nwk
+ 
+
+Step 3: 
+
+The output from running tree comparison in DendroPy (tree_compare_results) for all the  types  of alignments i.e   asymmetric_0.5, asymmetric_1.0, 
+asymmetric_2.0,  symmetric_0.5,  symmetric_1.0,  symmetric_2.0 was opened in MS Excel and sorted in ascending order. The number of trees with symmetric distance zero was counted. They represent the number of reference trees recovered. Number of trees recovered for all other symmetric distances was also calculated.
+
+
+Result:
+The percentage of trees recovered using Gblocks was then compared with noise reduced algorithm and TrimAl data. Percentage of reference trees recovered was also calculated.
